@@ -1,0 +1,17 @@
+# Connect to your database
+    conn = sqlite3.connect('database.db')
+    cursor = conn.cursor()
+
+    # SQL command to add a new column
+    add_column_query = """
+    ALTER TABLE database
+    ADD COLUMN mp3 ;
+    """
+    link_list= [''' ''']
+    # Execute the command
+    cursor.execute(add_column_query)
+
+
+    # Commit the changes and close the connection
+    conn.commit()
+    conn.close()
