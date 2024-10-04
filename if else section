@@ -1,0 +1,20 @@
+import random
+import sqlite3
+
+bpm = random.randint(70,110)
+print(bpm)
+con = sqlite3.connect('database.db')
+c = con.cursor()
+
+if bpm <= 85:
+    c.execute("select song_link  from database where initial_bpm = 70")
+    results = c.fetchall()
+    print(results)
+elif bpm <= 95:
+    c.execute("select song_link  from database where initial_bpm = 85")
+    results = c.fetchall()
+    print(results)
+elif bpm <= 110:
+    c.execute("select song_link from database where initial_bpm = 95")
+    results = c.fetchall()
+    print(results)
