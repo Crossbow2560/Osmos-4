@@ -1,0 +1,29 @@
+import sqlite3
+
+con = sqlite3.connect('database.db')
+c = con.cursor()
+links = """https://youtu.be/Q-jqcZ_Jbd8?si=oD9yfTINWRKsMRQb 
+https://youtu.be/9LtJYw1eY30?si=eObvIGnS9Fo7aO0X 
+https://youtu.be/oAVhUAaVCVQ?si=jDjAAvsOcrrbk3ay 
+https://youtu.be/-j2gA0ZoHV4?si=U1znF98wfEWhk8Bd 
+https://youtu.be/k4yXQkG2s1E?si=MpoQ8xf-N_VJHYrx 
+https://youtu.be/2ydCvkxuNm4?si=6ROY6nhC2Cm4Lfc7
+https://youtu.be/Bik8QJFu7J0?si=ZqTfMApwpHBCDerG
+https://youtu.be/ApXoWvfEYVU?si=K6y50xT8-a-EnY8u
+https://youtu.be/mw-SzHiWsTM?si=f2BlKmbq0IARMoyn
+https://youtu.be/9l4YS4h1VqA?si=t0FmzkP8x1VVHBNg
+https://youtu.be/6vKucgAeF_Q?si=ilYNhcskmdMQ-zY7
+https://youtu.be/2Z0Put0teCM?si=v1Fj_4bxBG1FupfY
+https://youtu.be/kmL8VakXiqc?si=KtRycTJZbHNaOUgR
+https://youtu.be/QR8962lq_Nc?si=XLYEgcUaa15lwqT1
+https://youtu.be/YKNVvNtvy70?si=97pi40uMNiDBaPdt
+https://youtu.be/Qc7_zRjH808?si=kAdiIyIK7PtR8Bnq
+https://youtu.be/T94PHkuydcw?si=KCCRe-jCGu_barww
+https://youtu.be/aGZ5vcsKA7A?si=7cLjsTqas14tbBdO""".split()
+list_of_songs = ["moves like jagger", "kamariya", "chammak challo", "aaj ki raat", "kaala chasma", "bye bye bye", "funk of galactico", "sunflower", "shinonuga E-wa", "honeypie", "matarghasti", "senorita", "cold", "the lost soul", "a birds last look", "cupid", "kun faya kun", "tumhare hi rahenge"]
+def addSongs(name, link):
+    c.execute("UPDATE database SET song_link = ? WHERE song_name = ?",   (link, name))
+for i in range(0, 18):
+    addSongs(list_of_songs[i], links[i])
+con.commit()
+def addsong_names()
