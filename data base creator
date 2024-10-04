@@ -1,0 +1,34 @@
+import sqlite3
+
+con = sqlite3.connect('database.db')
+c = con.cursor()
+
+c.execute("CREATE TABLE database(song_name varchar(30), song_lang varchar(20), initial_bpm int(4), final_bpm int(4))")
+c.execute("INSERT INTO database VALUES('moves like jagger','English',70,85)")
+c.execute("INSERT INTO database VALUES('kamariya','hindi',70,85)")
+c.execute("INSERT INTO database VALUES('chammak challo','hindi',70,85)")
+c.execute("INSERT INTO database VALUES('aaj ki raat','hindi',70,85)")
+c.execute("INSERT INTO database VALUES('kaala chasma','hindi',70,85)"),
+c.execute("INSERT INTO database VALUES('bye bye bye','English',70,85)")
+c.execute("INSERT INTO database VALUES('funk of galactico','English',70,85)")
+c.execute("INSERT INTO database VALUES('sunflower','English',85,95)")
+c.execute("INSERT INTO database VALUES('shinonuga E-wa','Japanese',85,95)")
+c.execute("INSERT INTO database VALUES('honeypie','English',85,95)")
+c.execute("INSERT INTO database VALUES('matarghasti','hindi',85,95)")
+c.execute("INSERT INTO database VALUES('senorita','hindi',85,95)")
+c.execute("INSERT INTO database VALUES('cold','English',95,110)")
+c.execute("INSERT INTO database VALUES('the lost soul','English',95,110)")
+c.execute("INSERT INTO database VALUES('a birds last look','English',95,110)")
+c.execute("INSERT INTO database VALUES('cupid','English',95,110)")
+c.execute("INSERT INTO database VALUES('kun faya kun','urdu',95,110)")
+c.execute("INSERT INTO database VALUES('tumhare hi rahenge','hindi',95,110)")
+add_column_query = """
+    ALTER TABLE database
+    ADD COLUMN song_link
+    """
+c.execute(add_column_query)
+
+con.commit()
+con.close()
+
+
